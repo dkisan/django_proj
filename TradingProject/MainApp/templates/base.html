@@ -1,0 +1,24 @@
+<!-- MainApp/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Trading App{% endblock %}</title>
+</head>
+
+<body>
+    <div style="margin: 10vh auto; width: max-content;">
+        <h1 style="text-align: center; text-decoration: underline;">Trading App</h1>
+        <form method="post" action="{% url 'upload_csv' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="csv_file">
+            <input type="number" name="timeframe" placeholder="Enter timeframe (minutes)">
+            <button type="submit">Upload</button>
+        </form>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

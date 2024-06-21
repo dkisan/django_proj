@@ -1,0 +1,11 @@
+<!-- MainApp/templates/result.html -->
+{% extends "base.html" %}
+
+{% block title %}Download JSON{% endblock %}
+
+{% block content %}
+<div style="margin: 20px; border-top: 1px dotted red; padding: 5px; text-align: center;">
+    <p>Click the link below to download the file:</p>
+    <a href="{{ json_file_path }}" download>Download</a>
+</div>
+{% endblock %}
